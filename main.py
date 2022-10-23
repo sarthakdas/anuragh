@@ -1,13 +1,33 @@
-
 import salesHandeller
-
+import expenditureHandeller
+import loginHaneller
 
 sales = salesHandeller.sales()
+expence = expenditureHandeller.expences()
+users = loginHaneller.security()
+loggedin = False
 
-sales.outputdf()
+while loggedin != True: 
+    loggedin = users.login()
+    print(loggedin)
 
-sales.newsale()
+# sales.outputdf()
 
-sales.outputdf()
+# sales.newsale()
 
-sales.plotlinegraph()
+# sales.outputdf()
+
+# sales.plotlinegraph()
+
+
+
+expence.outputdf()
+
+expence.newexpence()
+
+expence.outputdf()
+# expence.plotlinegraph()
+
+expence.editDB()
+
+expence.outputdf()

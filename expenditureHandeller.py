@@ -3,17 +3,17 @@ from matplotlib import pyplot as plt
 import pandas as pd
 import numpy as np
 
-class sales:
+class expences:
     def __init__(self):
-        self.salesdf = pd.read_csv('sales.csv')
+        self.expencedf = pd.read_csv('expence.csv')
 
-    def newsale(self):
+    def newexpence(self):
 
         date = datetime.today().strftime('%Y-%m-%d')
-        title = input("Name of the sale")
-        amount = float(input("How much was the sale"))
+        title = input("Name of the expence")
+        amount = float(input("How much was the expenditure"))
 
-        self.salesdf = self.salesdf.append(pd.DataFrame([
+        self.expencedf = self.expencedf.append(pd.DataFrame([
         [date,title,amount]], columns=['date','title','amount']
         
         )).reset_index(drop=True)
@@ -21,19 +21,19 @@ class sales:
         self.updateDB()
 
     def plotlinegraph(self):
-        self.salesdf.plot(x='date', y='amount')
+        self.expencedf.plot.bar(x='date', y='amount')
         plt.show()
 
     def updateDB(self):
-        self.salesdf.to_csv('sales.csv')
+        self.expencedf.to_csv('expence.csv',index=False)
 
     def editDB(self):
         index = int(input("what index do you want to edit"))
         amount = int(input("whats the new amount"))
-        self.salesdf.at[index,'amount'] = amount
+        self.expencedf.at[index,'amount'] = amount
         self.updateDB()
 
     def outputdf(self):
-        print(self.salesdf.head())
+        print(self.expencedf)
 
 
