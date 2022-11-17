@@ -24,6 +24,9 @@ class expences:
         self.expencedf.plot.bar(x='date', y='amount')
         plt.show()
 
+    def datareturn(self):
+        return self.expencedf['date'],self.expencedf['amount']
+
     def updateDB(self):
         self.expencedf.to_csv('expence.csv',index=False)
 

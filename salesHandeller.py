@@ -24,6 +24,10 @@ class sales:
         self.salesdf.plot(x='date', y='amount')
         plt.show()
 
+    def datareturn(self):
+        return self.salesdf['date'],self.salesdf['amount']
+
+
     def updateDB(self):
         self.salesdf.to_csv('sales.csv')
 
@@ -35,5 +39,3 @@ class sales:
 
     def outputdf(self):
         print(self.salesdf.head())
-
-
