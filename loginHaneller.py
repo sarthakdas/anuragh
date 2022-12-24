@@ -21,17 +21,16 @@ class security:
             if encryption.encrypt(usr,"usr"):
                 encryption.encrypt(pwd, "psw")
 
-    def login_login(self):
-        usr = input("Username:")
-        pwd = input("Password:")
-        if encryption.decrypt(usr,"usr"):
-            if encryption.decrypt(pwd, "psw"):
+    def login_login(self,username,password):
+        if encryption.decrypt(username,"usr"):
+            if encryption.decrypt(password, "psw"):
             # Call your menu function here example example.game_game()
             # The welcome is optional
                 print("Welcome!")
                 return True
             else:
                 print("Failed")
+        return False
 
 		
 
